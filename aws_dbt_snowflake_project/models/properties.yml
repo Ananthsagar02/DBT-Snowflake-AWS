@@ -1,0 +1,9 @@
+models:
+    - name: bronze_hosts
+      config:
+        materialized: table
+
+
+# to override the materialization for a specific model. from default file dbt_project.yml
+
+# This file is used to define properties for your models, such as materialization, tags, and more.
