@@ -1,0 +1,12 @@
+snapshots:
+     - name: dim_bookings
+       relation: ref('bookings')
+       config:
+           schema: gold
+           database: AIRBNB
+           unique_key: booking_id
+           strategy: timestamp
+           updated_at: created_at
+           dbt_valid_to_current: "to_date('9999-12-31')"
+
+# created_at is used as the timestamp column to track changes in the bookings data. Whenever a new record is inserted or an existing record is updated in the bookings data, the snapshot will create a new record in the dim_bookings snapshot with the updated information. The unique key is set to booking_id, which ensures that each booking is uniquely identified in the snapshot. The strategy is set to timestamp, which means that the snapshot will capture changes based on the created_at timestamp of the bookings data. The dbt_valid_to_current configuration is set to "to_date('9999-12-31')", which means that the snapshot will consider all records as valid until a new record with a later timestamp is created. This allows us to track the history of bookings and analyze trends over time.

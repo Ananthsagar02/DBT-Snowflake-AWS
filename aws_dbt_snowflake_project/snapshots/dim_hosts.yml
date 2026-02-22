@@ -1,0 +1,13 @@
+
+# this snapshot is for hosts in gold ephemeral model, which is used to capture the historical changes of hosts data over time. The snapshot will create a new record for each change in the hosts data, allowing us to track the history of hosts and analyze trends over time. The unique key is set to host_id, which ensures that each host is uniquely identified in the snapshot. The strategy is set to timestamp, which means that the snapshot will capture changes based on the created_at timestamp of the hosts data. The dbt_valid_to_current configuration is set to "to_date('9999-12-31')", which means that the snapshot will consider all records as valid until a new record with a later timestamp is created.
+
+snapshots:
+     - name: dim_hosts
+       relation: ref('hosts') 
+       config:
+           schema: gold
+           database: AIRBNB
+           unique_key: host_id
+           strategy: timestamp
+           updated_at: HOST_CREATED_AT
+           dbt_valid_to_current: "to_date('9999-12-31')" 

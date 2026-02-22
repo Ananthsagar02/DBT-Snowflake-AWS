@@ -26,3 +26,10 @@ Profile aws_dbt_snowflake_project written to /home/codespace/.dbt/profiles.yml
 
 
  -- dbt run --select models/demo -for specific model to run
+
+
+ -- SNAPSHOTS TO RUN
+  -- dbt snapshot
+
+  -- dbt clean.  to clean targets
+  -- dbt build

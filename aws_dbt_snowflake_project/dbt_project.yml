@@ -35,3 +35,11 @@ models:
     bronze:
       +materialized: table
       +schema: bronze  # to create a separate schema for bronze layer
+    silver:
+      +materialized: table
+      +schema: silver  # to create a separate schema for silver layer
+    gold:
+      +materialized: table
+      +schema: gold  # to create a separate schema for gold layer
+      ephemeral:  # to create ephemeral models that are not materialized in the database
+        +materialized: ephemeral
